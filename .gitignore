@@ -1,0 +1,31 @@
+# Cursor AI internal files
+.cursorrules
+PROJECT_CONTEXT.md
+LESSON_TEMPLATE.md
+CURSOR_RULES.md
+
+# Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go test files
+*.test
+*.out
+
+# Go dependency directories
+vendor/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
