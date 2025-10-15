@@ -35,8 +35,8 @@ Ready to take your Go skills to the next level? Check out the **Build Your First
 ## Social Media
 
 Follow for regular Go tips and updates:
-- **Twitter**: [@garyclarke](https://twitter.com/garyclarke)
-- **LinkedIn**: [Gary Clarke](https://linkedin.com/in/garyclarke)
+- **Twitter**: [@garyclarketech](https://twitter.com/garyclarketech)
+- **LinkedIn**: [Gary Clarke](https://www.linkedin.com/in/garyclarketech/)
 
 ---
 
