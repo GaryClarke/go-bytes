@@ -30,3 +30,6 @@ vendor/
 .DS_Store
 Thumbs.db
 
+# Local templates (do not track in git)
+YT_DESCRIPTION_TEMPLATE.txt
+
