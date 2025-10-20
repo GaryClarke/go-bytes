@@ -33,3 +33,6 @@ Thumbs.db
 # Local templates (do not track in git)
 YT_DESCRIPTION_TEMPLATE.txt
 
+# Per-lesson YouTube descriptions (ignored)
+**/*.yt.txt
+
