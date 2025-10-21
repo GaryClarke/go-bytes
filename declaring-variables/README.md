@@ -1,6 +1,6 @@
-# Declaring Variables in Go
+# Declaring Variables in Go (short syntax)
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=PJz01dH8ZN4)**
 
 ## Introduction
 
