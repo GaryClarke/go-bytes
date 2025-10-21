@@ -1,5 +1,7 @@
 # Initializing a Go Module with `go mod init`
 
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=VoFCSjlyYFI)**
+
 ## Introduction
 Go modules are how Go organizes and manages your project's code. A module defines the root of your project and tells Go where to find and store dependencies. Each module has a file named `go.mod` that keeps track of this information.
 
