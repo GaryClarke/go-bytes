@@ -36,3 +36,6 @@ YT_DESCRIPTION_TEMPLATE.txt
 # Per-lesson YouTube descriptions (ignored)
 **/*.yt.txt
 
+# Social media content (synced to Socials repo)
+**/socials/
+
