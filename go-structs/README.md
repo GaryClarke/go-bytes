@@ -1,6 +1,6 @@
 # Grouping Related Data with Go Structs
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=u0yUBFn1aUM)**
 
 ## Introduction
 
