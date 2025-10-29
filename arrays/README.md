@@ -1,6 +1,6 @@
 # Arrays in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=2fqAOMNv5C4)**
 
 ## Introduction
 
@@ -42,6 +42,7 @@ func main() {
 
     fmt.Println("First book:", books[0])
     fmt.Println("All books:", books)
+    fmt.Println("Array length:", len(books))
 }
 ```
 
@@ -56,6 +57,9 @@ Explanation:
 * `fmt.Println(...)`
   Prints individual elements or the full array.
 
+* `len(books)`
+  Returns the number of elements in the array. In this case, it returns 3.
+
 You can also declare and initialize in one line:
 
 ```go
@@ -67,6 +71,7 @@ books := [3]string{"Go in Action", "The Go Programming Language", "Learn Go with
 ```
 First book: Go in Action
 All books: [Go in Action The Go Programming Language Learn Go with Tests]
+Array length: 3
 ```
 
 ## Challenge
@@ -107,6 +112,7 @@ You've learned:
 * How to access elements using their index
 * That Go indexes start at 0
 * How to print individual values and the entire array
+* How to check the array's length using `len()`
 
 Arrays are a great stepping stone to slices, which offer more flexibility and are used more often in real Go code.
 
