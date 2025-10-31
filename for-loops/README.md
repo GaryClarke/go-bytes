@@ -1,6 +1,6 @@
 # Using `for` Loops in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=4X__5f8-VcE)**
 
 ## Introduction
 
