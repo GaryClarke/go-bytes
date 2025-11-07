@@ -26,6 +26,7 @@ In this lesson, you'll learn how to:
 package main
 
 import "fmt"
+import "math"
 
 func main() {
     // Basic arithmetic
