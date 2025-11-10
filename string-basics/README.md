@@ -1,6 +1,6 @@
-# Working with Strings in Go
+# String Basics in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=mScq2AqfdP0)**
 
 ## Introduction
 
