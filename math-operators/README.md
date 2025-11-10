@@ -1,6 +1,6 @@
 # Math in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=VntgJANyYyc)**
 
 ## Introduction
 
