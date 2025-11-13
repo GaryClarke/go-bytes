@@ -1,10 +1,10 @@
 # Understanding Pointers in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=vEvQptSGYfU)**
 
 ## Introduction
 
-In Go, a **pointer** is a variable that stores the **memory address** of another variable. This lets you reference and modify values *indirectly*, which can be powerful when working with large data or when you want to update values in-place.
+In Go, a **pointer** stores the **memory address** of a value. That value might live in a named variable (`age := 30; ptr := &age`) or the compiler can create it for you when you take the address of a composite literal (e.g. `app := &App{DB: db}`). Either way, a pointer lets you reference and modify data indirectly, which is useful when you want to share or update values without copying them.
 
 If you've used pointers in other languages like C or C++, Go's approach will feel familiar, but simpler.
 
@@ -99,8 +99,8 @@ If your solution works differently but still updates the value through the point
 
 ## Summary
 
-* A pointer stores the address of a variable.
-* Use `&` to get the address of a variable.
+* A pointer stores the address of a value.
+* Use `&` to get the address of an existing value or of a composite literal.
 * Use `*` to access or modify the value at that address.
 * Changing the value through a pointer updates the original variable.
 
