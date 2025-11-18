@@ -1,6 +1,6 @@
 # Zero Values in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=jRMuEoGTW6k)**
 
 ## Introduction
 
@@ -94,7 +94,7 @@ fmt.Println(b.Pages)  // 0
 fmt.Println(b.IsRead) // false
 ```
 
-Struct fields follow the same rule — each field gets the zero value of its type.
+Struct fields follow the same rule, each field gets the zero value of its type.
 
 ## Challenge
 
@@ -165,7 +165,7 @@ If your output looks different but still shows the zero values for each type, th
 
 ## Coming Up
 
-Next, we’ll explore **nil** — how Go represents “no value” for pointers, slices, maps, and interfaces.
+Next, we'll explore **nil**, how Go represents "no value" for pointers, slices, maps, and interfaces.
 
 ---
 
