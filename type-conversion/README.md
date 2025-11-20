@@ -1,6 +1,6 @@
 # Type Conversion in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=O6QmV52q6dU)**
 
 ## Introduction
 
