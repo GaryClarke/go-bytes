@@ -42,4 +42,5 @@ YT_DESCRIPTION_TEMPLATE.txt
 
 # Scripts
 aac.sh
+find-unrecorded.sh
 
