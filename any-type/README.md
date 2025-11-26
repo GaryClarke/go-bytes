@@ -1,6 +1,6 @@
 # Using the `any` Type
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=lmadIUfnIvo)**
 
 ## Introduction
 
@@ -54,8 +54,33 @@ Let’s break this down:
 
 This flexibility is useful, but it should be applied only when a more specific type does not make sense.
 
+### Using `any` in a Map
+
+You can also use `any` as a map value type to store different types of values in the same map:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    data := map[string]any{
+        "name":  "Alice",
+        "age":   30,
+        "price": 19.99,
+    }
+
+    fmt.Println("Name:", data["name"])
+    fmt.Println("Age:", data["age"])
+    fmt.Println("Price:", data["price"])
+}
+```
+
+Here, the map can store strings, integers, and floats all together because the value type is `any`. This is useful when you need to work with data that has mixed types, such as JSON data or configuration settings.
+
 ## Expected Output
 
+From the first example:
 ```
 Value: 42
 Type: int
@@ -63,6 +88,13 @@ Value: hello
 Type: string
 Value: 3.14
 Type: float64
+```
+
+From the map example:
+```
+Name: Alice
+Age: 30
+Price: 19.99
 ```
 
 ## Challenge
