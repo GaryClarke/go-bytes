@@ -171,5 +171,5 @@ You learned:
 * `!` flips a Boolean value (true → false, false → true)
 * Parentheses let you group conditions and control logic
 
-These operators make your `if` statements much more powerful. Boolean operators combine with if statements to create powerful, flexible conditions that control your program's behavior.
+These operators make your `if` statements much more powerful. Boolean operators combine with if statements to create powerful, flexible conditions that control your program's behaviour.
 

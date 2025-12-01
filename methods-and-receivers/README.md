@@ -1,6 +1,6 @@
 # Introduction to Methods and Receivers
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=DnB39HAhEy4)**
 
 ## Introduction
 
