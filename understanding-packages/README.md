@@ -1,26 +1,28 @@
 # Understanding Packages in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=Slh9sTahWV0)**
 
 ## Introduction
 
-Go uses packages to organise code. A package is a collection of related files that belong together and provide a clear boundary for how code is grouped and reused. Every Go file belongs to a package, and every Go program is built from one or more packages.
+Packages are Go's way of organising code. A package is a group of related files that work together to provide useful functionality. Every Go file belongs to a package, and every Go program is built from one or more packages.
 
-Packages help you structure larger programs, avoid name collisions, and share code across different parts of your project. They also form the basis of Go's standard library, which is made up of many small, focused packages.
+Most of the time, you will use Go's standard library packages, which give you ready-made tools for printing text, working with maths, dealing with strings, handling time, and much more.
 
-In this lesson, you will learn what a package is, how to import one, how to create your own, and how Go uses package names to find and use code.
+In this lesson, you will learn what a package is, how to import one, and how to call functions inside it.
 
 ## Uses / Use Cases
 
-- Organising related code into separate folders.
-- Reusing functions and types across different files.
-- Splitting a project into clear and understandable parts.
-- Importing functionality from Go's standard library.
-- Preparing your code so it can grow as your project becomes larger.
+* Organising Go's built in functionality into clear groups.
+
+* Reusing code that lives in the standard library.
+
+* Keeping your own programs tidy by separating concerns.
+
+* Calling helper functions from the packages you import.
 
 ## Example
 
-Here is a simple program that uses the `math` package from Go's standard library:
+Here is a simple program that uses two standard library packages, `fmt` and `math`.
 
 ```go
 package main
@@ -31,155 +33,88 @@ import (
 )
 
 func main() {
-    result := math.Sqrt(25)
+    result := math.Sqrt(49)
     fmt.Println("Square root:", result)
 }
 ```
 
 Let's break this down:
 
-- **Package declaration**
-  Every Go file begins with a package name.
-  `package main` tells Go that this file is part of the main package, which creates an executable program.
+* **Package declaration**
 
-- **Importing packages**
-  The import block lists the packages we want to use.
-  `fmt` is used for printing.
-  `math` gives us mathematical functions like `Sqrt`.
+  The file begins with `package main`. Every Go file starts by telling Go which package it belongs to.
 
-- **Using package functions**
-  Functions inside a package are accessed with dot notation.
-  `math.Sqrt(25)` calls the `Sqrt` function from the `math` package.
+  The special package named `main` tells Go this file is part of an executable program.
 
-Packages keep the standard library organised and help you work with clean, focused tools.
+* **Importing packages**
 
-## Creating Your Own Package
+  The `import` block lists the packages we want to use.
 
-Let's imagine a folder structure like this:
+  `fmt` provides printing functions.
 
-```
-understanding-packages/
-    main.go
-    helper/
-        helper.go
-```
+  `math` provides mathematical tools like `Sqrt`.
 
-Inside `helper/helper.go`:
+* **Calling a function from a package**
 
-```go
-package helper
+  `math.Sqrt(49)` means: call the `Sqrt` function that lives inside the `math` package.
 
-func Double(n int) int {
-    return n * 2
-}
-```
+  Go uses dot notation to access functions inside a package.
 
-Inside `main.go`:
-
-```go
-package main
-
-import (
-    "fmt"
-    "understanding-packages/helper"
-)
-
-func main() {
-    fmt.Println(helper.Double(10))
-}
-```
-
-Here is what is happening:
-
-- The `helper` folder contains a Go file with `package helper`.
-- Because the folder name and package name match, Go knows how to organise it.
-- In `main.go`, we import it using the full path.
-- We can now call `helper.Double(10)` from the main package.
-
-This is how you build larger programs in a clean and predictable way.
+This is the core pattern for using packages in Go.
 
 ## Expected Output
 
 ```
-Square root: 5
-```
-
-and for the custom helper example:
-
-```
-20
+Square root: 7
 ```
 
 ## Challenge
 
-Create a folder named `shapes` next to `main.go`.
+Write a program that:
 
-Inside it, create a file `circle.go` that contains a function called `Area` which takes a radius and returns the area of a circle using this formula:
+1. Imports the `strings` package from the standard library
 
-```
-area = 3.14 * radius * radius
-```
+2. Uses `strings.ToUpper` to convert a message to uppercase
 
-Then in `main.go`:
-
-1. Import your `shapes` package.
-2. Call the `Area` function.
-3. Print the result.
+3. Prints the result using `fmt.Println`
 
 Run it using:
 
 ```
-go run .
+go run main.go
 ```
 
 ## Solution
 
-Great job if you attempted this challenge! Here's one way to solve it:
-
-Folder structure:
-
-```
-understanding-packages/
-    main.go
-    shapes/
-        circle.go
-```
-
-`shapes/circle.go`:
-
-```go
-package shapes
-
-func Area(radius float64) float64 {
-    return 3.14 * radius * radius
-}
-```
-
-`main.go`:
+Great job if you attempted this challenge! Here's the solution:
 
 ```go
 package main
 
 import (
     "fmt"
-    "understanding-packages/shapes"
+    "strings"
 )
 
 func main() {
-    fmt.Println(shapes.Area(5))
+    msg := "go makes packages easy"
+    upper := strings.ToUpper(msg)
+    fmt.Println(upper)
 }
 ```
 
 ## Summary
 
-You have learned how Go uses packages to structure code. Here is what you covered:
+You have learned the basics of how Go uses packages. Here is what you covered:
 
-- Every Go file belongs to a package.
-- The `main` package is used to create executable programs.
-- You import packages with the `import` keyword.
-- Package functions are accessed with dot syntax.
-- You can create your own packages by placing files in their own folders.
-- Packages let you organise code logically as your project grows.
+* Every Go file begins with a package name.
 
-Packages are a core part of Go's design and you will use them in every program you write.
+* The `main` package is used for programs you can run.
 
+* You import standard library packages with the `import` keyword.
+
+* Package functions are called with dot notation.
+
+* Packages help keep code organised and easy to understand.
+
+In a later lesson, you will learn how to create your own packages and structure your own projects.
