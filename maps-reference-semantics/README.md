@@ -1,6 +1,6 @@
 # Maps and Reference Semantics in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=3vUSnQ6xYnU)**
 
 ## Introduction
 
@@ -31,13 +31,13 @@ func addScore(scores map[string]int, name string, amount int) {
 }
 
 func main() {
-    players := map[string]int{
+    playerScores := map[string]int{
         "Alice": 10,
     }
 
-    addScore(players, "Alice", 5)
+    addScore(playerScores, "Alice", 5)
 
-    fmt.Println("Alice score:", players["Alice"])
+    fmt.Println("Alice score:", playerScores["Alice"])
 }
 ```
 
@@ -49,9 +49,9 @@ Alice score: 15
 
 Let's break this down:
 
-- `players` is a map from string to int.
-- When you pass `players` to `addScore`, Go does not copy the entire map.
-- Instead, both `players` and `scores` refer to the same underlying data.
+- `playerScores` is a map from string to int.
+- When you pass `playerScores` to `addScore`, Go does not copy the entire map.
+- Instead, both `playerScores` and `scores` refer to the same underlying data.
 - Updating the map inside the function updates the original.
 
 This is very different from how structs or basic values behave.
