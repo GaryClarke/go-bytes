@@ -1,21 +1,21 @@
 # Type Assertions in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=UOrZGoOJTMw)**
 
 ## Introduction
 
-Interfaces in Go describe behaviour, not concrete types. When a value is stored in an interface, Go remembers the concrete type inside it, but you can only access it through the interface's methods.
+Sometimes you have a value and you need to check what type it actually is. For example, you might have a variable of type `any` that could hold a string, an integer, or something else, and you need to find out which one it is.
 
-Sometimes, you need to get the concrete value back out of an interface. This is where **type assertions** come in. A type assertion lets you ask, "Is this interface value actually a specific concrete type?" If it is, you can extract and use it.
+This is where **type assertions** come in. A type assertion lets you check if a value is a specific type and extract it if it is. You can think of it as asking, "Is this value actually a string?" or "Is this value actually an integer?" and then using it as that type if the answer is yes.
 
-In this lesson, you will learn how type assertions work, how to use them safely, and when they make sense.
+In this lesson, you will learn how type assertions work, how to use them safely, and when they are useful.
 
 ## Uses / Use Cases
 
 * Extracting concrete values from interface parameters.
 * Handling different underlying types stored in an interface.
-* Writing flexible functions that accept interfaces but still need type specific behaviour.
 * Working with values returned as `any` or other interface types.
+* Writing flexible functions that accept interfaces but still need type specific behaviour.
 
 ## Example: A Simple Type Assertion
 
@@ -35,6 +35,12 @@ func main() {
 }
 ```
 
+Expected output:
+
+```
+hello
+```
+
 Explanation:
 
 * `value` is an interface value of type `any`.
@@ -42,33 +48,11 @@ Explanation:
 * It tells Go, "I expect this value to be a string."
 * If the value really is a string, the assertion succeeds and returns it.
 
-This works only if the underlying type matches.
-
-## Example: What Happens When the Type Is Wrong
-
-If the underlying type does not match, a type assertion without protection will cause a panic.
-
-```go
-package main
-
-import "fmt"
-
-func main() {
-    var value any = 42
-
-    text := value.(string)
-
-    fmt.Println(text)
-}
-```
-
-This program will crash at runtime, because the value is not a string.
-
-To avoid this, Go provides a safe form of type assertion.
+This works only if the underlying type matches. If the type does not match, the program will panic at runtime. That is why you should use safe type assertions instead.
 
 ## Example: Safe Type Assertions
 
-You can use the "comma ok" pattern to check whether the assertion succeeded.
+You can use the "comma ok" pattern to check whether the assertion succeeded before using the value.
 
 ```go
 package main
@@ -89,62 +73,56 @@ func main() {
 }
 ```
 
+Expected output:
+
+```
+Value is not a string
+```
+
 Explanation:
 
 * The assertion returns two values.
 * `text` is the extracted value, if successful.
 * `ok` is a boolean that tells you whether the assertion worked.
-* This pattern prevents runtime panics.
+* Check `ok` before using the extracted value to avoid panics.
 
 This is the recommended way to use type assertions when the type is not guaranteed.
 
-## Example: Type Assertions with Interfaces
+## Example: Using Safe Type Assertions with Multiple Types
 
-Type assertions are especially useful when working with interfaces.
+You can check for multiple types using a chain of if statements.
 
 ```go
 package main
 
 import "fmt"
 
-type Printer interface {
-    Print()
-}
-
-type ConsolePrinter struct{}
-
-func (ConsolePrinter) Print() {
-    fmt.Println("Printing to console")
-}
-
-func debug(p Printer) {
-    if cp, ok := p.(ConsolePrinter); ok {
-        fmt.Println("Concrete type is ConsolePrinter:", cp)
+func process(value any) {
+    if s, ok := value.(string); ok {
+        fmt.Println("Got a string:", s)
+    } else if i, ok := value.(int); ok {
+        fmt.Println("Got an integer:", i)
     } else {
-        fmt.Println("Unknown printer type")
+        fmt.Println("Unknown type")
     }
 }
 
 func main() {
-    var p Printer = ConsolePrinter{}
-    debug(p)
+    process("hello")
+    process(42)
+    process(true)
 }
 ```
 
-Explanation:
-
-* `p` is an interface value.
-* Inside `debug`, we check whether `p` is actually a `ConsolePrinter`.
-* The function still accepts the interface, but can branch based on the concrete type.
-
-This pattern should be used sparingly, but it is sometimes necessary.
-
-## Expected Output
+Expected output:
 
 ```
-Printing to console
-Concrete type is ConsolePrinter: {}
+Got a string: hello
+Got an integer: 42
+Unknown type
 ```
+
+This pattern lets you handle different types stored in an interface value.
 
 ## When to Use Type Assertions
 
@@ -233,4 +211,3 @@ You have now learned how type assertions work in Go. Here is what you covered:
 * They should be used carefully and only when necessary.
 
 Type assertions give you a way to inspect and work with concrete types while still benefiting from Go's interface based design.
-
