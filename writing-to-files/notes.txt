@@ -1,0 +1,3 @@
+Lesson notes
+Writing files in Go
+Using os.Create
