@@ -1,6 +1,6 @@
 # Reading from Files in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtu.be/5xCsmJR1vC4)**
 
 ## Introduction
 
