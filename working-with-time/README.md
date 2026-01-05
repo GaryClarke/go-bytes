@@ -1,6 +1,6 @@
 # Working with Time in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtu.be/89-KuSpFGXo)**
 
 ## Introduction
 
@@ -88,6 +88,24 @@ The reference time is:
 ```
 Mon Jan 2 15:04:05 MST 2006
 ```
+
+Each part of this reference date represents a component of time:
+
+| Reference Component | Represents | Example Output |
+|---------------------|------------|----------------|
+| `2006` | Year (4 digits) | `2026` |
+| `06` | Year (2 digits) | `26` |
+| `01` | Month (numeric) | `01` |
+| `Jan` | Month (abbreviated) | `Jan` |
+| `January` | Month (full name) | `January` |
+| `02` | Day | `15` |
+| `15` | Hour (24-hour format) | `14` |
+| `03` | Hour (12-hour format) | `02` |
+| `04` | Minute | `30` |
+| `05` | Second | `45` |
+| `PM` | AM/PM | `PM` |
+
+When you write a layout string, you use these exact components from the reference date. Go then replaces each part with the corresponding value from your actual time.
 
 You format times by writing a layout string that uses this exact reference.
 
@@ -181,6 +199,23 @@ Time: 14:30:15
 ```
 
 The exact values will match your current system time when you run the program.
+
+## Aside: Useful Time Constants
+
+The `time` package provides several constants that represent common durations. These are useful when you need to work with time intervals or durations.
+
+```go
+time.Nanosecond
+time.Microsecond
+time.Millisecond
+time.Second
+time.Minute
+time.Hour
+```
+
+Each constant represents the duration it names. For example, `time.Second` is one second, `time.Minute` is one minute, and `time.Hour` is one hour.
+
+These constants are particularly useful when working with durations, time arithmetic, or functions that accept time intervals. You will see them used in future lessons when we cover time-based operations like adding time to a timestamp or measuring elapsed time.
 
 ## Summary
 
