@@ -10,6 +10,16 @@ This file tracks lesson ideas and suggestions for the "Build Your First Go App" 
 - **Testing handlers that modify data**: Test POST, PUT, and DELETE handlers that change database state
 - **Testing POST endpoints**: Write tests for POST handlers that verify request body decoding, validation, and response structure
 
+## Unit Testing
+
+- **Unit tests vs integration tests**: Understand the difference between testing functions in isolation (unit tests) versus testing multiple components together (integration tests)
+- **Testing functions in isolation**: Write tests that run individual functions without external dependencies like databases or HTTP servers
+- **Arrange-act-assert pattern**: Structure tests with three clear phases: set up test data, call the function, verify results
+- **Testing the happy path**: Start with tests that verify valid input works correctly before testing error cases
+- **Checking empty maps**: Use `len(map) > 0` to verify that a map is empty (no errors) or contains entries (errors present)
+- **Test file naming conventions**: Create test files with `_test.go` suffix in the same package as the code being tested
+- **Running specific tests**: Use `go test -run TestName ./package/path` to run individual tests during development
+
 ## Development Approaches
 
 - **Outside-in development**: Build endpoints by starting with stubbed responses and working backwards to implement full logic
