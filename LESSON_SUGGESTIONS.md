@@ -6,6 +6,8 @@ This file tracks lesson ideas and suggestions for the "Build Your First Go App" 
 
 - **Testing error cases**: Test handlers that return 404 (not found) and 500 (server error) status codes
 - **Table-driven tests**: Use table-driven tests to test multiple scenarios with different inputs and expected outputs
+- **Completing table-driven tests**: Loop over test cases with `for _, tc := range tests`, use `t.Run()` to create subtests for each case, and run the function being tested inside the loop
+- **Subtests with t.Run()**: Use `t.Run()` to create subtests that run independently, providing better failure messages that show which specific test case failed
 - **Testing edge cases**: Test handlers with edge cases like zero values, empty strings, and boundary conditions
 - **Testing handlers that modify data**: Test POST, PUT, and DELETE handlers that change database state
 - **Testing POST endpoints**: Write tests for POST handlers that verify request body decoding, validation, and response structure
@@ -17,6 +19,8 @@ This file tracks lesson ideas and suggestions for the "Build Your First Go App" 
 - **Arrange-act-assert pattern**: Structure tests with three clear phases: set up test data, call the function, verify results
 - **Testing the happy path**: Start with tests that verify valid input works correctly before testing error cases
 - **Checking empty maps**: Use `len(map) > 0` to verify that a map is empty (no errors) or contains entries (errors present)
+- **Testing error maps**: Check error count with `len(errors) != len(wantKeys)` and verify specific error keys exist using map lookups with the `ok` variable
+- **Asserting exact error matching**: Check both the length of error maps and the presence of specific keys to ensure errors match expectations exactly
 - **Test file naming conventions**: Create test files with `_test.go` suffix in the same package as the code being tested
 - **Running specific tests**: Use `go test -run TestName ./package/path` to run individual tests during development
 
