@@ -1,6 +1,6 @@
 # The Writer Interface in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=qvFDJcakc7E)**
 
 ## Introduction
 
