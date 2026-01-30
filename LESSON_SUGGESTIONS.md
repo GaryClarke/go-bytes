@@ -52,3 +52,9 @@ This file tracks lesson ideas and suggestions for the "Build Your First Go App" 
 - **Required field validation**: Check for empty strings and missing values to ensure required fields are provided
 - **Numeric range validation**: Validate that numeric values are within acceptable bounds (e.g., positive integers, reasonable ranges)
 
+## Database Writes / Inserts
+
+- **ExecContext for INSERT**: Use `ExecContext` for INSERT, UPDATE, and DELETE (statements that don't return rows); use QueryContext/QueryRowContext for SELECT
+- **LastInsertId()**: After `ExecContext` for an INSERT, call `LastInsertId()` on the Result to get the auto-generated ID and set it on your struct
+- **Insert store methods**: Take a pointer to the entity (with required fields set, ID typically zero), run the INSERT with placeholders, set the struct's ID from `LastInsertId()`, and return the same pointer
+- **Parameterized INSERT**: Use placeholders for values; omit auto-generated columns (e.g. `id`); let the database generate the ID

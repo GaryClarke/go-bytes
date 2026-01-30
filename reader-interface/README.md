@@ -1,6 +1,6 @@
 # The Reader Interface in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=wx9lOuF6UrI)**
 
 ## Introduction
 

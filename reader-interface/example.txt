@@ -1,0 +1,4 @@
+This is an example file.
+It demonstrates reading from a file using io.Reader.
+The file contains multiple lines of text.
+You can read all of this content using io.ReadAll.
