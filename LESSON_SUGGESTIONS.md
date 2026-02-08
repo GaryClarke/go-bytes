@@ -12,6 +12,13 @@ This file tracks lesson ideas and suggestions for the "Build Your First Go App" 
 - **Testing handlers that modify data**: Test POST, PUT, and DELETE handlers that change database state
 - **Testing POST endpoints**: Write tests for POST handlers that verify request body decoding, validation, and response structure
 
+## Integration / Database Testing
+
+- **Testing against the database**: Run handler tests with a real database (e.g. in-memory SQLite) so handlers, store, and SQL are exercised together; catches more bugs than mocking the store alone
+- **In-memory SQLite for tests**: Use `sql.Open("sqlite", ":memory:")` so tests use a real database in RAM; fast, no disk, no manual cleanup
+- **Test setup with Migrate and Seed**: In test setup, open the database, run Migrate and SeedIfEmpty, return an App with NewStores(db); use t.Cleanup to close the connection
+- **Blank import for database drivers**: Use `_ "driver/package"` to register the driver with database/sql so sql.Open works
+
 ## Unit Testing
 
 - **Unit tests vs integration tests**: Understand the difference between testing functions in isolation (unit tests) versus testing multiple components together (integration tests)
@@ -52,9 +59,7 @@ This file tracks lesson ideas and suggestions for the "Build Your First Go App" 
 - **Required field validation**: Check for empty strings and missing values to ensure required fields are provided
 - **Numeric range validation**: Validate that numeric values are within acceptable bounds (e.g., positive integers, reasonable ranges)
 
-## Database Writes / Inserts
-
-- **ExecContext for INSERT**: Use `ExecContext` for INSERT, UPDATE, and DELETE (statements that don't return rows); use QueryContext/QueryRowContext for SELECT
+## Database Writes / Inserts- **ExecContext for INSERT**: Use `ExecContext` for INSERT, UPDATE, and DELETE (statements that don't return rows); use QueryContext/QueryRowContext for SELECT
 - **LastInsertId()**: After `ExecContext` for an INSERT, call `LastInsertId()` on the Result to get the auto-generated ID and set it on your struct
 - **Insert store methods**: Take a pointer to the entity (with required fields set, ID typically zero), run the INSERT with placeholders, set the struct's ID from `LastInsertId()`, and return the same pointer
 - **Parameterized INSERT**: Use placeholders for values; omit auto-generated columns (e.g. `id`); let the database generate the ID## Handler and Store

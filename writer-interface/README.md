@@ -31,10 +31,12 @@ type Writer interface {
 Explanation:
 
 * Any type that has a `Write` method with this signature implements `io.Writer`.
-* The method receives a slice of bytes.
+* The method receives a slice of bytes (`[]byte`).
 * It returns how many bytes were written and an error.
 
 That's it. There is no keyword or special syntax for implementing interfaces in Go.
+
+**Note:** When you see `[]byte("some string")`, this is a type conversion that converts a string to a slice of bytes. `byte` is a built-in type (an alias for `uint8`) that has always been part of Go. The `Write` method expects `[]byte`, not a string, which is why the conversion is needed.
 
 ## Writing to an io.Writer
 
@@ -50,6 +52,8 @@ import (
 )
 
 func writeMessage(w io.Writer) {
+    // []byte(...) converts a string to a slice of bytes
+    // w.Write() expects []byte, not a string
     w.Write([]byte("Hello from io.Writer\n"))
 }
 
@@ -68,6 +72,8 @@ Explanation:
 
 * `os.Stdout` represents standard output.
 * It implements `io.Writer`.
+* `[]byte("Hello from io.Writer\n")` converts the string to a slice of bytes, which `w.Write()` expects.
+* `byte` is a built-in type (an alias for `uint8`) that has always been part of Go.
 * The same function can write to many different destinations.
 
 ## Files Implement io.Writer
@@ -83,6 +89,7 @@ import (
 )
 
 func writeMessage(w io.Writer) {
+    // Convert string to []byte for w.Write()
     w.Write([]byte("Written to a file\n"))
 }
 
@@ -151,6 +158,7 @@ import (
 )
 
 func writeGreeting(w io.Writer) {
+    // Convert string to []byte - w.Write() expects a slice of bytes
     w.Write([]byte("Hello from the writer interface\n"))
 }
 

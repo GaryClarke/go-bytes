@@ -1,6 +1,6 @@
 # Channels in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=WFugE45bUZg)**
 
 ## Introduction
 
@@ -28,12 +28,17 @@ package main
 import "fmt"
 
 func main() {
+    // Create a channel that can carry string values
     messages := make(chan string)
 
+    // Start a goroutine that sends a message
     go func() {
+        // Send operation: send "Hello from a goroutine" into the channel
         messages <- "Hello from a goroutine"
     }()
 
+    // Receive operation: receive a value from the channel and store it in msg
+    // This blocks until a value is sent
     msg := <-messages
     fmt.Println(msg)
 }
@@ -48,11 +53,11 @@ Hello from a goroutine
 Explanation:
 
 * `make(chan string)` creates a channel that can carry `string` values.
-* You send a value into a channel using `<-`: `messages <- "Hello from a goroutine"`
-* You receive a value from a channel using `<-`: `msg := <-messages`
+* You send a value into a channel using `<-`: `messages <- "Hello from a goroutine"` (this is the sender)
+* You receive a value from a channel using `<-`: `msg := <-messages` (this entire statement is the receiver)
 * The direction depends on which side of the operator the channel appears on.
 * The goroutine sends a message, and `main` receives it.
-* The program waits until the value is received.
+* The receive operation blocks until a value is sent, so the program waits until the value is received.
 
 ## Channels Are Blocking
 
@@ -64,13 +69,20 @@ package main
 import "fmt"
 
 func main() {
+    // Create an unbuffered channel that can carry int values
     ch := make(chan int)
 
+    // Start a goroutine that sends a value
     go func() {
+        // Send operation: send 42 into the channel
+        // This blocks until someone is ready to receive
         ch <- 42
         fmt.Println("Value sent")
     }()
 
+    // Receive operation: receive a value from the channel and store it in value
+    // This blocks until someone sends a value
+    // The entire "value := <-ch" is the receiver
     value := <-ch
     fmt.Println("Value received:", value)
 }
@@ -85,8 +97,10 @@ Value sent
 
 Explanation:
 
-* Sending blocks until a receiver is ready.
-* Receiving blocks until a sender is ready.
+* The send operation `ch <- 42` blocks until a receiver is ready.
+* The receive operation `value := <-ch` blocks until a sender is ready.
+* The entire `value := <-ch` statement is the receiver - it receives a value from the channel and stores it in the variable `value`.
+* Both operations block until they can complete, which synchronizes the goroutines.
 * This blocking behaviour makes channels useful for synchronisation.
 * The ordering here is guaranteed by the channel, not by timing.
 
@@ -113,12 +127,16 @@ package main
 import "fmt"
 
 func main() {
+    // Create a channel for integers
     numbers := make(chan int)
 
+    // Start a goroutine that sends a number
     go func() {
+        // Send 100 into the channel
         numbers <- 100
     }()
 
+    // Receive the number from the channel
     value := <-numbers
     fmt.Println("Received:", value)
 }
