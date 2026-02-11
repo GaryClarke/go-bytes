@@ -1,6 +1,6 @@
 # Writing HTTP Responses in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=7pEKQNECJ4U)**
 
 ## Introduction
 
