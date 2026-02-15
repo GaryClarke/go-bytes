@@ -1,6 +1,6 @@
 # Starting an HTTP Server in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=wKzX6qYA7sM)**
 
 ## Introduction
 
