@@ -67,3 +67,22 @@ This file tracks lesson ideas and suggestions for the "Build Your First Go App" 
 - **Parameterized INSERT**: Use placeholders for values; omit auto-generated columns (e.g. `id`); let the database generate the ID## Handler and Store- **Wiring handler to store**: Call the store's Insert (or other write) method from the create handler with the domain model built from validated input
 - **Handling insert errors**: On Insert failure, log the error and return 500 Internal Server Error; don't expose internal error details in the response
 - **Returning the saved resource**: Use the value returned from Insert (with ID set) when writing the 201 response so the client receives the full created resource including its ID
+
+## Borrowed / Inspiration
+
+### singleflight - Duplicate Function Call Suppression
+
+**Summary:** Use singleflight in front of the cache-miss path for any Go service with caching. It deduplicates concurrent calls for the same key so only one execution runs; all other callers wait and receive the same result. Prevents cache stampedes (thundering herd) where many requests hit the backend at once when cache expires.
+
+**Key points:**
+- Package: `golang.org/x/sync/singleflight`
+- For a given key, only one execution of a function is in-flight at a time
+- Concurrent callers for the same key wait and share the result
+- Example: 1000 requests for same uncached data; without singleflight all hit DB; with singleflight 1 query runs, 999 wait and share
+- Protects downstream services from redundant load
+- Deduplicates expensive computations
+
+**Links:**
+- https://pkg.go.dev/golang.org/x/sync/singleflight
+
+**Original inspiration:** Put singleflight in front of your cache-miss path for free deduplication. It ensures only one execution per key; other concurrent callers wait and receive the same result. Critical for preventing cache stampedes and protecting downstream services.
