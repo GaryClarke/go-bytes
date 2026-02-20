@@ -1,6 +1,6 @@
 # JSON Responses in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=BxXfcm6KA68)**
 
 ## Introduction
 
@@ -106,7 +106,7 @@ Encoding can fail in rare cases, for example if the data contains unsupported ty
 
 You should always check the error returned by `Encode`.
 
-If encoding fails, return a 500 status code.
+If encoding fails, return a 500 status code. The helper `http.Error` does both: it sets the status code and writes the message as the response body. You pass the response writer, the message string, and the status code. It is a convenient way to send an error response without calling `WriteHeader` and writing the body separately.
 
 ## Running and Testing the Server
 
