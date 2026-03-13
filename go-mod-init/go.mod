@@ -2,5 +2,5 @@
 module go-mod-init
 
 // This tells Go which version of the language this module was created with.
-// It doesn't restrict you — you can still build this with any Go version >= 1.25.3.
-go 1.25.3
+// It doesn't restrict you - you can still build this with any Go version >= 1.26.
+go 1.26
