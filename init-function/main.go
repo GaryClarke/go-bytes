@@ -2,14 +2,19 @@ package main
 
 import "fmt"
 
+var formats = map[string]string{}
 var fileTypes = map[string]string{}
 
-func registerType(name string, description string) {
+func registerFormat(name string, description string) {
+	formats[name] = description
+}
+
+func registerTypes(name string, description string) {
 	fileTypes[name] = description
 }
 
 func init() {
-	registerType("csv", "Comma-separated values")
+	registerTypes("csv", "Comma-separated values")
 }
 
 func main() {
