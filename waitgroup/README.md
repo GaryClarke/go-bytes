@@ -1,6 +1,6 @@
 # Waiting for Goroutines with sync.WaitGroup
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=Ng4Nw0iLkfI)**
 
 ## Introduction
 
