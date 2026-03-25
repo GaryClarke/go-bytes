@@ -1,6 +1,6 @@
 # Struct Embedding in Go
 
-**[Watch this lesson on YouTube](https://youtube.com/watch?v=VIDEO_ID)**
+**[Watch this lesson on YouTube](https://youtube.com/watch?v=j3d89BBVBcY)**
 
 ## Introduction
 
@@ -110,11 +110,12 @@ Embedding also promotes methods.
 
 ```go
 type Address struct {
-    City string
+    City  string
+    State string
 }
 
 func (a Address) Full() string {
-    return a.City
+    return a.City + ", " + a.State
 }
 
 type User struct {
